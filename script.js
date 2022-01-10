@@ -93,6 +93,25 @@ let colorList = ["white",
         }
     }
 
+    //Delete row from grid
+    function deleteRow() {
+        let grid = document.getElementsByTagName("tr")
+        grid[grid.length - 1].remove()
+    }
+
+    //Delete column from grid
+    function deleteColumn () {
+        cells--;
+        let grid = document.getElementById("grid")
+        let rows = grid.getElementsByClassName("grid-row")
+        let lastColumn = grid.rows[0].cells.length - 1
+    
+        for (let i = 0; i < grid.rows.length; i++) {
+            grid.rows[i].deleteCell(lastColumn);
+        }
+    }
+
+
 
 
 
