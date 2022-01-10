@@ -1,0 +1,13 @@
+
+
+#grid {
+    margin: 25px;
+}
+
+/* #grid,
+.grid-row, */
+.grid-cell {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    padding: 10px;
+}
