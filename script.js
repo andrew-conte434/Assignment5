@@ -47,7 +47,14 @@ let colorList = ["white",
         }
     }
 
-    
+    //Fills all cells with selected color
+    function fillAllCells() {
+        const allCells = document.getElementsByClassName("grid-cell")
+        for(let i = 0; i < allCells.length; i++){
+            allCells[i].style.backgroundColor = defaultColor;
+            allCells[i].classList.remove("uncolored")
+        }
+    }
 
     function changeColor() {
         this.style.backgroundColor = defaultColor;
