@@ -1,3 +1,4 @@
+let numOfRows = 0
 let cells = 1   // assuming there's at least one cell being made
 let colorList = ["gray",
     "white",
@@ -14,6 +15,17 @@ let colorList = ["gray",
     let colorOption = document.querySelector(".color-options")
     let grid = document.querySelector("#grid")
     let chosenColor = document.querySelector(".color-options")
+
+    let clicked = false //tracks if the user is holding the mouse down
+
+    //toggles clicked on
+    grid.addEventListener("mousedown", () => {
+        clicked = true
+        console.log(clicked)})
+    //toggles clicked off
+    grid.addEventListener("mouseup", () => {
+        clicked = false
+        console.log(clicked)})
 
 
     let defaultColor = "gray"
@@ -89,6 +101,9 @@ let colorList = ["gray",
         cell.classList.add("uncolored")
         //cell.addEventListener("click", changeColor)
         cell.addEventListener("mousedown", changeColor)
+        //When the user mouses over a cell, the event listener checks if the
+        // 'clicked' variable is true. If yes, the color of the cell is set to
+        // the selected color
         cell.addEventListener("mouseover", () => {
             if(clicked){
                 cell.style.backgroundColor = defaultColor
@@ -102,6 +117,7 @@ let colorList = ["gray",
     //Add rows a new row to the grid
     function addRow () {
         //cells = 1
+        numOfRows++
         let newRow = document.createElement("tr")
         newRow.classList.add("grid-row")
         grid.appendChild(newRow)
@@ -114,6 +130,10 @@ let colorList = ["gray",
 
     //Add columns to the grid
     function addColumn () {
+        if(numOfRows === 0){
+            addRow()
+            return
+        }
         cells++ // when we add a column, we are using the row numbers to fill in the whole column
         let rows = grid.getElementsByClassName("grid-row")
 
@@ -124,6 +144,7 @@ let colorList = ["gray",
 
     //Delete row from grid
     function deleteRow() {
+        numOfRows--
         let grid = document.getElementsByTagName("tr")
         grid[grid.length - 1].remove()
     }
