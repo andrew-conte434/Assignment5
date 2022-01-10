@@ -54,7 +54,34 @@ let colorList = ["white",
         this.classList.remove("uncolored")
     }
 
+    function createCell(className) {
+        let cell = document.createElement("td")
+        cell.classList.add(className)
+        cell.classList.add("uncolored")
+        //cell.addEventListener("click", changeColor)
+        cell.addEventListener("mousedown", changeColor)
+        cell.addEventListener("mouseover", () => {
+            if(clicked){
+                cell.style.backgroundColor = defaultColor
+                cell.classList.remove("uncolored")
+            }
+            console.log(clicked)
+        })
+        return cell;
+    }
 
+    //Add rows a new row to the grid
+    function addRow () {
+        //cells = 1
+        let newRow = document.createElement("tr")
+        newRow.classList.add("grid-row")
+        grid.appendChild(newRow)
+
+        for (let i = 0; i < cells; i++) {
+            newRow.appendChild(createCell("grid-cell"))
+        }
+        
+    }
 
 
 
