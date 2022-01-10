@@ -1,6 +1,6 @@
 let cells = 1   // assuming there's at least one cell being made
-let colorList = ["white",
-    "gray",
+let colorList = ["gray",
+    "white",
     "red",
     "orange",
     "yellow",
@@ -66,6 +66,15 @@ let colorList = ["white",
         for(let i = 0; i < uncoloredCells.length; i++){
             uncoloredCells[i].style.backgroundColor = defaultColor;
             uncoloredCells[i].classList.remove("uncolored")
+        }
+    }
+
+    //Resets the color of all cells to white
+    function clearAllCells() {
+        const allCells = document.getElementsByClassName("grid-cell")
+        for(let i = 0; i < allCells.length; i++){
+            allCells[i].style.backgroundColor = "white";
+            allCells[i].classList.add("uncolored")
         }
     }
 
