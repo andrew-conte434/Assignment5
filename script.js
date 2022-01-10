@@ -56,6 +56,19 @@ let colorList = ["white",
         }
     }
 
+    //Fills all uncolored cells with selected color
+    function fillAllUncolored() {
+        const allCells = document.getElementsByClassName("grid-cell")
+        //Filters out all cells that are currently colored
+        let uncoloredCells = [...allCells].filter(cell => {
+            return cell.classList.contains("uncolored")
+        })
+        for(let i = 0; i < uncoloredCells.length; i++){
+            uncoloredCells[i].style.backgroundColor = defaultColor;
+            uncoloredCells[i].classList.remove("uncolored")
+        }
+    }
+
     function changeColor() {
         this.style.backgroundColor = defaultColor;
         this.classList.remove("uncolored")
