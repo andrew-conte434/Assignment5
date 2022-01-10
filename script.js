@@ -83,6 +83,17 @@ let colorList = ["white",
         
     }
 
+    //Add columns to the grid
+    function addColumn () {
+        cells++ // when we add a column, we are using the row numbers to fill in the whole column
+        let rows = grid.getElementsByClassName("grid-row")
+
+        for (let i = 0; i < rows.length; i++) {
+            rows[i].appendChild(createCell("grid-cell"))
+        }
+    }
+
+
 
 
     
