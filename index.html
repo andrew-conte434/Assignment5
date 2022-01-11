@@ -14,23 +14,26 @@
     </head>
 
 <body onload="createColorMenu()">
-    <section id="side-menu">
-        <div class="menu-buttons">
-        <button class="menu-button" onclick="addRow()">Add Row</button>
-        <button class="menu-button" onclick="addColumn()">Add Column</button>
-        <button class="menu-button" onclick="deleteRow()">Delete Rows</button>
-        <button class="menu-button" onclick="deleteColumn()">Delete Columns</button>
+    <header>
+        <div class="side-menu">
+            <div class="menu-buttons">
+                <button class="menu-button" onclick="addRow()">Add Row</button>
+                <button class="menu-button" onclick="addColumn()">Add Column</button>
+                <button class="menu-button" onclick="deleteRow()">Delete Rows</button>
+                <button class="menu-button" onclick="deleteColumn()">Delete Columns</button>
+            </div>
+            <div class = "color-buttons">
+                <!--<div class="dropdown">-->
+                    <!--<i class="fas fa-palette"></i>-->
+                    <select class="color-button" id="drop" oninput="colorPick()">
+                    </select>
+                <!--</div>-->
+                <button class="color-button" onClick="fillAllUncolored()">Fill All Uncolored Cells</button>
+                <button class="color-button" onClick="fillAllCells()">Fill All Cells</button>
+                <button class="color-button" onClick="clearAllCells()">Clear All Cells</button>
+            </div>
         </div>
-        <div class="dropdown">
-            <button class="menu-button"> Color Selection</button>
-            <i class="fas fa-palette"></i>
-            <select class="color-options" id="drop" oninput="colorPick()">     
-            </select>
-        </div>
-        <button class="menu-button" onClick="fillAllUncolored()">Fill All Uncolored Cells</button>
-        <button class="menu-button" onClick="fillAllCells()">Fill All Cells</button>
-        <button class="menu-button" onClick="clearAllCells()">Clear All Cells</button>
-    </section>
+    </header>
 
     <table id="grid"></table>
     <script src="script.js"></script>
