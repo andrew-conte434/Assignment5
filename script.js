@@ -12,9 +12,9 @@ let colorList = ["gray",
     "pink"]
 
 
-    let colorOption = document.querySelector(".color-options")
+    let colorOption = document.querySelector(".color-button")
     let grid = document.querySelector("#grid")
-    let chosenColor = document.querySelector(".color-options")
+    let chosenColor = document.querySelector(".color-button")
 
     let clicked = false //tracks if the user is holding the mouse down
 
@@ -99,6 +99,7 @@ let colorList = ["gray",
         let cell = document.createElement("td")
         cell.classList.add(className)
         cell.classList.add("uncolored")
+        cell.style.backgroundColor = "white"
         //cell.addEventListener("click", changeColor)
         cell.addEventListener("mousedown", changeColor)
         //When the user mouses over a cell, the event listener checks if the
